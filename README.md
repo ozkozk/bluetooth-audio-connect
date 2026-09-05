@@ -36,6 +36,44 @@ Choose a device from the numbered list. Setup saves its stable Windows container
 
 Then double-click **Connect Bluetooth Audio.cmd** to connect your saved device. You can use Windows **Send to > Desktop (create shortcut)** on that launcher. Running without saved settings prompts for a device, saves it, then connects.
 
+## Launching from the Command Line
+
+Run these commands after reviewing the [testing guidance](TESTING.md). Each pair shows alternatives: use the current-directory command or replace the example full path with your project location.
+
+### Command Prompt (cmd.exe)
+
+Build from the project directory, or by full path:
+
+```cmd
+build.cmd
+"C:\Path With Spaces\bluetooth-audio-connect\build.cmd"
+```
+
+After building and completing [setup](#quick-start), connect your saved device:
+
+```cmd
+"Connect Bluetooth Audio.cmd"
+"C:\Path With Spaces\bluetooth-audio-connect\Connect Bluetooth Audio.cmd"
+```
+
+### PowerShell
+
+PowerShell requires an explicit relative path (`.\`) to run a command in the current directory. Use the call operator (`&`) to execute a quoted path.
+
+Build from the project directory, or by full path:
+
+```powershell
+.\build.cmd
+& "C:\Path With Spaces\bluetooth-audio-connect\build.cmd"
+```
+
+After building and completing [setup](#quick-start), connect your saved device:
+
+```powershell
+& ".\Connect Bluetooth Audio.cmd"
+& "C:\Path With Spaces\bluetooth-audio-connect\Connect Bluetooth Audio.cmd"
+```
+
 ## Commands
 
 ```cmd
@@ -101,20 +139,3 @@ The audio-topology approach was informed by [ToothTray](https://github.com/m2jea
 - [Microsoft: Bluetooth audio property set](https://learn.microsoft.com/en-us/windows-hardware/drivers/audio/kspropsetid-btaudio)
 
 Licensed under [MIT](LICENSE). See [PUBLISHING.md](PUBLISHING.md) for publishing the source on GitHub.
-
-## Launching from the Command Line
-
-If you are running the scripts manually from the current directory, use the following syntax depending on your shell.
-
-**Command Prompt (cmd.exe):**
-```cmd
-build.cmd
-"C:\Path With Spaces\bluetooth-audio-connect\build.cmd"
-```
-
-**PowerShell:**
-PowerShell requires an explicit relative path (`.\`) to execute scripts in the current directory. If the path contains spaces, you must use the call operator (`&`) and quotes:
-```powershell
-.\build.cmd
-& "C:\Path With Spaces\bluetooth-audio-connect\build.cmd"
-```
