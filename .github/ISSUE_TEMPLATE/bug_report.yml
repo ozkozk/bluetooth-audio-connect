@@ -1,0 +1,106 @@
+name: Bug report
+description: Report a reproducible Bluetooth Audio Connect problem
+title: "Bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Bluetooth Audio Connect. Before submitting, review [TESTING.md](../../TESTING.md) for current testing status, hardware limitations, and security guidance.
+
+        Please redact personal device names, Bluetooth container IDs, user names, and private paths before sharing details or logs. Do not share credentials, tokens, or executable uploads.
+
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      description: Include edition, version, and build if available.
+      placeholder: Windows 11 Pro 23H2, build 22631.0000
+    validations:
+      required: true
+
+  - type: input
+    id: device-model
+    attributes:
+      label: Bluetooth/audio device model
+      description: Use a generic or redacted name if your local device name contains personal information.
+      placeholder: Example headset or speaker model
+    validations:
+      required: true
+
+  - type: textarea
+    id: command-run
+    attributes:
+      label: Exact command run
+      description: Paste the exact command and arguments. Redact private paths, personal device names, and container IDs.
+      placeholder: bin\BluetoothAudioConnect.exe --device "Redacted headset" --defaults output
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect Bluetooth Audio Connect to do?
+      placeholder: The paired headset reconnects and becomes the default output device.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual behavior
+      description: What actually happened?
+      placeholder: The command timed out without changing the default output device.
+    validations:
+      required: true
+
+  - type: input
+    id: error-code
+    attributes:
+      label: Error code
+      description: Include the program exit code or any Windows/security-software message code shown.
+      placeholder: Exit code 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: adapter-driver
+    attributes:
+      label: Bluetooth adapter and driver details
+      description: Optional. Include adapter model, driver provider, driver version, and driver date if known.
+      placeholder: Intel/Realtek/etc., driver version and date
+    validations:
+      required: false
+
+  - type: dropdown
+    id: security-software
+    attributes:
+      label: Did security software block execution?
+      description: If yes, share the product name and detection/message only if you can do so safely. Keep protection enabled and do not bypass security warnings.
+      options:
+        - "No"
+        - "Yes"
+        - "Not sure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: sanitized-logs
+    attributes:
+      label: Sanitized logs or output
+      description: Optional. Paste only logs/output you have reviewed and sanitized. Remove personal device names, Bluetooth container IDs, user names, private paths, credentials, tokens, and other sensitive details.
+      placeholder: Paste sanitized output from %LOCALAPPDATA%\BluetoothAudioConnect or the terminal.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Optional. Add anything else that may help reproduce or diagnose the issue.
+    validations:
+      required: false
