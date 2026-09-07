@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve Bluetooth Audio Connect. Before submitting, review [TESTING.md](../../TESTING.md) for current testing status, hardware limitations, and security guidance.
+        Thanks for helping improve Bluetooth Audio Connect. Before submitting, review [TESTING.md](https://github.com/ozkozk/bluetooth-audio-connect/blob/main/TESTING.md) for current testing status, hardware limitations, and security guidance.
 
         Please redact personal device names, Bluetooth container IDs, user names, and private paths before sharing details or logs. Do not share credentials, tokens, or executable uploads.
 
@@ -61,10 +61,10 @@ body:
     id: error-code
     attributes:
       label: Error code
-      description: Include the program exit code or any Windows/security-software message code shown.
-      placeholder: Exit code 3
+      description: Optional. Include any program exit code or Windows/security-software message code shown. Leave blank or enter None / unknown if no code was available.
+      placeholder: Exit code 3, or None / unknown
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: adapter-driver
