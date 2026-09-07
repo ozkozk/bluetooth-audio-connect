@@ -84,6 +84,7 @@ body:
         - "No"
         - "Yes"
         - "Not sure"
+      default: 2
     validations:
       required: true
 
